@@ -37,5 +37,4 @@ public class object01 {
     String name;
     int age;
     String color;
-
 }
