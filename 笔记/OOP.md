@@ -393,3 +393,68 @@ class Test5 {
 }
 ```
 
+### 8.成员方法的传参机制-值拷贝
+
+基本数据类型传递的是实际值(值拷贝),形参的任何改变不会影响实参!!
+
+```java
+package B方法;
+public class Method07 {
+    public static void main(String[] args) {
+        int num1 = 2;
+        int num2 = 5;
+
+        Test6 t = new Test6();
+        t.swap(num1, num2);
+        System.out.println("num1:" + num1); // 2
+        System.out.println("num2:" + num2); // 5
+    }
+}
+
+class Test6 {
+    public void swap(int a, int b){
+        System.out.println("交换前:");
+        System.out.println("a:" + a); // 2
+        System.out.println("b:" + b); // 5
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println("a:" + a); // 5
+        System.out.println("b:" + b); // 2
+	}
+}
+```
+
+### 9.成员方法的传参机制-引用类型
+
+引用类型传递的是地址(传递的也是值,但是值是个地址),引用类型的参数可以通过形参的修改影响到实参.
+
+```java
+package B方法;
+
+public class Method08 {
+    public static void main(String[] args) {
+
+        int[] arr = {1,2,3,4,5};
+
+        Test7 t = new Test7();
+        t.map(arr);
+
+        for(int i = 0; i < arr.length; i ++){
+            System.out.println(arr[i]); // arr[0] === 100
+        }
+    }
+}
+
+class Test7 {
+    public void map(int[] arr) {
+
+        for(int i = 0; i < arr.length; i++) {
+            arr[0] = 100; // 将1修改为100
+            System.out.println(arr[i]);
+        }
+    }
+}
+```
+
