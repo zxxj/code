@@ -458,3 +458,47 @@ class Test7 {
 }
 ```
 
+### 10.克隆对象
+
+```java
+package B方法;
+
+public class Mehotd09 {
+    public static void main(String[] args) {
+				
+				/* 
+    		编写一个方法copyPerson，可以复制一个Person对象，返回复制的对象。克隆对象，注意要求得到新对象和原来的
+  			对象是两个独立的对象，只是他们的属性相同
+ 			  */
+      
+        Person2 p = new Person2();
+        p.name = "dusk";
+        p.age = 18;
+        System.out.println("p.name:" + p.name + "p.age:" + p.age); //p.name:dusk p.age:18
+
+        MyTools m = new MyTools();
+        Person2 p2 = m.cloneTools(p);
+        System.out.println("p2.name:" + p2.name + "p2.age:" + p2.age); //p2.name:dusk p2.age:18
+
+        System.out.println("p的hashCode值:" + p); // @38082d64
+        System.out.println("p2的hashCode值:" + p2); // @dfd3711
+
+        System.out.println(p == p2); // false
+
+    }
+}
+
+class Person2 {
+    String name;
+    int age;
+}
+class MyTools {
+    public Person2 cloneTools(Person2 p) {
+        Person2 p2 = new Person2();
+        p2.name = p.name;
+        p2.age = p.age;
+        return p2;
+    }
+}
+```
+
