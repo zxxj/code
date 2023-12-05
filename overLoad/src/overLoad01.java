@@ -1,7 +1,5 @@
 public class overLoad01 {
     public static void main(String[] args) {
-        // 方法重载
-
         /*
         *   需求: 在同一个类中,声明如下几个方法
         *        1.可以求2个整数的最大值
@@ -35,7 +33,7 @@ public class overLoad01 {
     }
 
     // 仅仅是返回值不同,但方法名和参数相同,这样的方法不是重载方法
-    public static double testMethod(int a, int b) {
-        return a > b ? a : b;
-    }
+    //    public static double testMethod(int a, int b) {
+    //        return a > b ? a : b;
+    //    }
 }
